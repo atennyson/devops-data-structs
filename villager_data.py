@@ -35,7 +35,16 @@ def get_villagers_by_species(filename, search_string="All"):
 
     villagers = []
 
-    # TODO: replace this with your code
+    with open("villagers.csv") as file:
+        reader = file.read().splitlines()
+        for row in reader:
+            row = row.split("|")
+            if row[1] == search_string:
+                villagers.append(row[0])
+            else:
+                villagers.append(row[0])
+
+    villagers.sort()
 
     return villagers
 
