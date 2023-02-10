@@ -59,9 +59,31 @@ def all_names_by_hobby(filename):
         - list[list[str]]: a list of lists containing names
     """
 
-    # TODO: replace this with your code
+    fitness = []
+    nature = []
+    education = []
+    music = []
+    fashion = []
+    play = []
 
-    return []
+    with open("villagers.csv") as file:
+        reader = file.read().splitlines()
+        for row in reader:
+            row = row.split("|")
+            if row[3] == "Fitness":
+                fitness.append(row[0])
+            elif row[3] == "Nature":
+                nature.append(row[0])
+            elif row[3] == "Education":
+                education.append(row[0])
+            elif row[3] == "Music":
+                music.append(row[0])
+            elif row[3] == "Fashion":
+                fashion.append(row[0])
+            elif row[3] == "Play":
+                play.append(row[0])
+
+    return [sorted(fitness), sorted(nature), sorted(education), sorted(music), sorted(fashion), sorted(play)]
 
 
 def all_data(filename):
@@ -79,7 +101,11 @@ def all_data(filename):
 
     all_data = []
 
-    # TODO: replace this with your code
+    with open(filename) as file:
+        reader = file.read().splitlines()
+        for row in reader:
+            row = row.split("|")
+            all_data.append((row[0], row[1], row[2], row[3], row[4]))
 
     return all_data
 
@@ -98,7 +124,14 @@ def find_motto(filename, villager_name):
         - str: the villager's motto or None
     """
 
-    # TODO: replace this with your code
+    with open(filename) as file:
+        reader = file.read().splitlines()
+        for row in reader:
+            row = row.split("|")
+            if row[0] == villager_name:
+                return row[4]
+
+    return None
 
 
 def find_likeminded_villagers(filename, villager_name):
