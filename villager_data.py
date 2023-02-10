@@ -148,5 +148,17 @@ def find_likeminded_villagers(filename, villager_name):
         >>> find_likeminded_villagers('villagers.csv', 'Wendy')
         ['Bella', ..., 'Carmen']
     """
+    names = []
+    with open(filename) as file:
+        reader = file.read().splitlines()
+        for row in reader:
+            row = row.split("|")
+            if row[0] == villager_name:
+                key = row[2]
 
-    # TODO: replace this with your code
+        for row in reader:
+            row = row.split("|")
+            if row[2] == key:
+                names.append(row[0])
+
+    return names
