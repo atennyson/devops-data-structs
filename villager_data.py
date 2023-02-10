@@ -22,9 +22,6 @@ def all_species(filename):
     return species
 
 
-print(all_species("villagers.csv"))
-
-
 def get_villagers_by_species(filename, search_string="All"):
     """Return a list of villagers' names by species.
 
