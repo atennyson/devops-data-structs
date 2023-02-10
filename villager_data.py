@@ -13,9 +13,16 @@ def all_species(filename):
 
     species = []
 
-    # TODO: replace this with your code
+    with open("villagers.csv") as file:
+        reader = file.read().splitlines()
+        for row in reader:
+            row = row.split("|")
+            species.append(row[1])
 
     return species
+
+
+print(all_species("villagers.csv"))
 
 
 def get_villagers_by_species(filename, search_string="All"):
